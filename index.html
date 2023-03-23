@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de JavaScript</title>
+
+    <script>
+        function cambiaParrafo(){
+            document.getElementById("modi").innerHTML = "Parrafo modificado";
+            //se usa innerHTML para acceder a un elemento de HTML, por ejemplo un parrafo
+        }
+    </script>
+</head>
+<body>
+    <style>
+        h1{
+           color: brown; 
+        }
+        h3{
+            color: rgb(90, 26, 26);
+        }
+        p{
+            color: rgb(0, 0, 0);
+            font-family:Arial, Helvetica, sans-serif;
+            line-height: 21px;
+            text-align: justify;
+        }
+        div{
+            background-color: rgb(255, 241, 241);
+            padding:15px;
+        }
+
+    </style>
+<div id="agrandar">
+    <h1>Pagina para aprender JavaScript</h1>
+    <h3>Titulo 1</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        <br> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of 
+        Lorem Ipsum.</p>
+    <h3>Titulo 2</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+        and more recently with desktop publishing software like Aldus PageMaker including versions of 
+        Lorem Ipsum.</p>
+    <p>Cliquea aca para agrandar la letra!</p>
+    <button type="button" onclick="document.getElementById('agrandar').style.fontSize='20px'">Click</button>
+    <h3>Titulo 3</h3>
+    <p id="modi">Si cliqueas el boton de abajo, este parrafo se modificara</p>
+    <button type="button" onclick="cambiaParrafo()">Click Aqui</button>
+    <h3>Titulo 4</h3>
+    <p>A continuacion se usara document.write(), sirve para hacer pruebas, aunque no se usa tanto como innerHTML, 
+        y si se lo usa sin poner los scripts, borra todos los elementos HTML.</p>
+    <!--document.write() se usa SOLO para testear-->
+    <script>
+        document.write("Esto fue escrito dentro de un document.write");
+    </script>
+    <p>Debajo muestro que si no uso los scripts, se borra todos los elementos de html</p>
+    <button type="button" onclick="document.write('Se borro todo ahora')">Click Aqui</button>
+    <!-- window.alert() o alert() sirven para mostrar un box de alerta al abrir la web -->
+    <h3>Titulo 5</h3>
+    <p>El console.log() se usa para depurar</p>
+    <h3>Titulo 6</h3>
+    <p>El window.print() se utiliza para imprimir la pantalla, el boton de abajo nos permitira hacerlo</p>
+    <button type="button" onclick="window.print()">Click para imprimir pantalla!</button>
+    <h3>Titulo 7</h3>
+    <p>A continuacion se mostrara una forma de utilizar los statements o declaraciones en JS</p>
+    <p id="statem1">Cual es la resta z entre x=23 e y=13?</p>
+    <script>
+        let x, y, z; // aca declaro las variables
+        x = 23;
+        y = 13;
+        z = x - y; //notar que cada declaracion es separada por un punto y coma
+        
+    </script>
+    <button type="button" onclick="document.getElementById('statem1').innerHTML = 
+    'El resultado es z = ' + z + '.' ">Click para conocer z</button>
+    <p id="parr1"></p>
+    <script>
+        let f=0.5;
+        document.getElementById('parr1').innerHTML="El porcentaje es " + porcFuncion(f) + ".";
+
+        function porcFuncion(f){
+            return f*100;
+
+        }
+    </script>
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+
+    <script>
+        //esto es un objeto "person", que va a tener ATRIBUTOS y METODOS (funciones como propiedad del objeto)
+    const person = {
+        nombre: "Julio",
+        apellido: "Gomez",
+        edad: 34,
+        domicilio: "Cordoba 345",
+        os: "IAPOS",
+        nomCompleto: function(){
+            return this.nombre + " " + this.apellido;
+        }
+    };
+        document.getElementById('p1').innerHTML = "El nombre es " + person.nombre + ".";
+        person.nombre = "Ramiro";
+        document.getElementById('p2').innerHTML = "El nombre nuevo es " + person.nombre + ".";
+        document.getElementById('p3').innerHTML = "El nombre completo es " + person.nomCompleto() + ".";
+        x = new person;
+    </script>
+
+    <button type="button" onclick="document.getElementById('p4').innerHTML = Date()">Click para ver la fecha</button>
+    <p id="p4"></p>
+
+    <p id="p5"></p>
+
+    <script>
+        let letras = "abdcgfmjhk";
+        
+        document.getElementById('p5').innerHTML = "La longitud o cantidad de caracteres del string letras es: " + letras.length;
+    </script>
+
+    <h3>Titulo 8: String Search Methods</h3>
+
+    <!--JAVASCRIPT STRING SEARCH METHODS-->
+    <!--1 indexOf(): es un metodo que devuelve la posision de la PRIMERA ocurrencia de un string
+    (cadena) dentro de un string, veamos un ejemplo-->
+    <p id="ind1"></p>
+    <script>
+        let cad1 = "Devuelve la posicion de la primera vez que aparece 'la' en esta cadena";
+        document.getElementById('ind1').innerHTML = "La primera ocurrencia es en la posicion " + cad1.indexOf("la");
+    </script>
+
+    <!--2 lastIndexOf(): es un metodo que devuelve la posision de la ULTIMA ocurrencia de un string
+    (cadena) dentro de un string, veamos un ejemplo-->
+    <p id="ind2"></p>
+    <script>
+        let cad2 = "Devuelve la posicion de la ultima vez que aparece 'la' en esta cadena";
+        document.getElementById('ind2').innerHTML = "La ultima ocurrencia es en la posicion " + cad2.lastIndexOf("la");
+    </script>
+
+    <!--Tanto lastIndexOf() como indexOf() devolveran -1 si la cadena ingresada como
+    parametro no esta en la cadena indicada. Ambos metodos aceptan un segundo parametro, 
+    como posicion de inicio para comenzar la busqueda, veamos un ejemplo-->
+    <p id="ind3"></p>
+    <script>
+        let cad3 = "Devuelve la posicion de la primera vez que aparece 'la' en esta cadena arrancando desde la posicion 11";
+        document.getElementById('ind3').innerHTML = "La primera ocurrencia desde la posicion 11 es en la posicion " + cad3.indexOf("la", 11);
+    </script>
+
+    <!--3 search(): es un metodo que busca string por string, y devuelve la primer posicion
+    en la que se da el match acorde a la cadena buscada pasada como parametro-->
+    <p id="ind4"></p>
+    <script>
+        let cad4 = "Devuelve la posicion de la primera vez que aparece 'la' en esta cadena";
+        document.getElementById('ind4').innerHTML = "La primera ocurrencia es en la posicion " + cad4.search("la");
+    </script>
+
+    <!--Notar que lo devuelto por search() y  por indexOf() es lo mismo
+    aunque estos dos metodos NO son iguales, el metodo search() no puede 
+    tener una segunda posicion de arranque como segundo parametro, y el
+    metodo indexOf() no permite como parametros expresiones regulares (como barras invertidas)-->
+
+    <!--4 match(): es un metodo que devuelve un array con los resultados de 
+    matchear string por string. Si no uso la g no me apareceran TODAS las ocurrencias 
+    en el arreglo, sino q solamente la primera, y si no pongo la i, no contaran
+    las ocurrencias en mayusculas y minusculas a la vez, es decir, la i sirve para 
+    hacerlo case insensitive. Veamos un ejemplo-->
+    <p id="ind5"></p>
+    <script>
+        let cad5 = "Devuelve un arreglo y no la posicion de LA primera vez que aparece 'la' en esta cadena";
+        miArray = cad5.match(/la/gi);
+        document.getElementById('ind5').innerHTML = "La cantidad de ocurrencias de la o LA son: " + miArray.length +
+        " y el array esta compuesto por: " + miArray;
+    </script>
+
+    <!--5 matchAll(): es un metodo que devuelve una iteracion con los resultados de 
+    matchear string por string. Si no uso la g SI me apareceran TODAS las ocurrencias 
+    en el arreglo, pero si no pongo la i, no contaran
+    las ocurrencias en mayusculas y minusculas a la vez, es decir, la i sirve para 
+    hacerlo case insensitive. Veamos un ejemplo-->
+    <p id="ind6"></p>
+    <script>
+        let cad6 = "Devuelve un arreglo y no la posicion de LA primera vez que aparece 'la' en esta cadena";
+        const miIteracion = cad6.matchAll(/la/gi);
+        document.getElementById('ind6').innerHTML = "La iteracion esta compuesta por: " + Array.from(miIteracion);
+    </script>
+
+    <!--6 includes(): este metodo devuelve true si la cabena pasada como parametro
+    esta dentro del string, o false si no esta. Este metodo es SENSIBLE
+    a minusuclas y mayusculas. Acepta ademas un 2do parametro, q es la posicion
+    en la que deberia estar el string buscado. Veamos unos ejemplos-->
+    <p id="ind7"></p>
+    <p id="ind8"></p>
+    <script>
+        let cad7 = "Devuelve true o false, dependiendo de si encuentra o no la cadena ingresada";
+        const rta = cad7.includes('la');
+        document.getElementById('ind7').innerHTML = "La respuesta a si lo encontro es: " + rta;
+        let cad8 = "Esta la comida";
+        const rta2 = cad8.includes('la', 6);
+        document.getElementById('ind8').innerHTML = "La respuesta a si lo encontro en la posicion indicada es: " + rta2;
+    </script>
+
+    <!--7 startsWith(): devuelve true si un string comienza con un valor especifico
+    pasado como parametro. La posicion de inicio/comienzo puede pasarse como 2do 
+    parametro. Este metodo es sensible a mayusc y minusc. Veamos unos ejemplos:-->
+    <p id="ind9"></p>
+    <p id="ind10"></p>
+    <script>
+        let cad9 = "Holaaa nnnn";
+        const rta3 = cad9.startsWith('Holu');
+        document.getElementById('ind9').innerHTML = "La respuesta a si comienza con ese string es: " + rta3;
+        let cad10 = "Esta la comida";
+        const rta4 = cad10.startsWith('comida', 8);
+        document.getElementById('ind10').innerHTML = "La respuesta a si comienza con ese string" +
+        "en la posicion indicada es: " + rta4;
+    </script>
+
+    <!--8 endsWith(): devuelve true si un string termina con un valor especifico
+    pasado como parametro. La posicion de fin puede pasarse como 2do 
+    parametro. Este metodo es sensible a mayusc y minusc. Veamos unos ejemplos:-->
+    <p id="ind11"></p>
+    <p id="ind12"></p>
+    <script>
+        let cad11 = "Holaaa nnnn";
+        const rta5 = cad11.endsWith('nn');
+        document.getElementById('ind11').innerHTML = "La respuesta a si termina con ese string es: " + rta5;
+        let cad12 = "Esta la comida";
+        const rta6 = cad12.endsWith('la', 7);
+        document.getElementById('ind12').innerHTML = "La respuesta a si termina con ese string" +
+        "en la posicion indicada es: " + rta6;
+    </script>
+
+    <h3>Titulo 9: String Templates</h3>
+    <!--Para hacer interpolaciones se usan las comillas que no son las '', sino las ``   -->
+    <p id="textA"></p>
+    <script>
+        let nombre = "Lautaro";
+        let apellido = "Garzon";
+
+        let texto = `Bienvenido, ${nombre} ${apellido}`; 
+        document.getElementById('textA').innerHTML = texto;
+    </script>
+
+    <p id="textB"></p>
+
+    <script>
+        let billeteraStaFe = 0.3;
+        let precio = 3000;
+        let total = `El total es ${((precio - (precio * billeteraStaFe))).toFixed(2)}`;
+        document.getElementById('textB').innerHTML = total;
+
+    </script>
+
+
+
+
+</div>   
+</body>
+</html>
